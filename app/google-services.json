@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "62230841297",
+    "project_id": "samcis-spaces-v2",
+    "storage_bucket": "samcis-spaces-v2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62230841297:android:a4c5e7ffe1adcd144542f0",
+        "android_client_info": {
+          "package_name": "com.example.samcis_spaces"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9e6JHDKfC_EHmLQPaejAujClbyoIZfno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
