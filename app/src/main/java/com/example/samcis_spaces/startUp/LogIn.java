@@ -1,15 +1,17 @@
 package com.example.samcis_spaces.startUp;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.samcis_spaces.R;
@@ -21,12 +23,10 @@ public class LogIn extends AppCompatActivity {
     Button loginButton;
     TextView signUp;
     boolean isPasswordVisible = false;
-    boolean valid = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_log_in);
 
         email = findViewById(R.id.email);
@@ -34,29 +34,23 @@ public class LogIn extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         signUp = findViewById(R.id.signUp);
 
-        checkField(email);
-        checkField(password);
-
-        password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        // Toggle password visibility
+        password.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
                 togglePasswordVisibility();
             }
+            return true;
         });
 
-//        loginButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                handleLogin();
-//            }
-//        });
-
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        // Login button logic
+        loginButton.setOnClickListener(v -> {
+            if (validateFields()) {
+                // Proceed with login logic
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
+
+        signUp.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
     }
 
     private void togglePasswordVisibility() {
@@ -71,13 +65,18 @@ public class LogIn extends AppCompatActivity {
         password.setSelection(password.getText().length());
     }
 
-    public boolean checkField(EditText textField) {
-        if (textField.getText().toString().isEmpty()) {
-            textField.setError("Invalid.");
+    private boolean validateFields() {
+        boolean valid = true;
+
+        if (email.getText().toString().isEmpty()) {
+            email.setError("Invalid.");
             valid = false;
-        } else {
-            valid = true;
         }
+        if (password.getText().toString().isEmpty()) {
+            password.setError("Invalid.");
+            valid = false;
+        }
+
         return valid;
     }
 }
