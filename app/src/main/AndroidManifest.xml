@@ -20,22 +20,14 @@ xmlns:tools="http://schemas.android.com/tools">
 
         <!-- Launcher -->
         <activity
-            android:name=".startUp.SplashActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.SAMCISSpaces">
+            android:name=".startUp.LogIn"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- STARTUP -->
-        <!-- LogIn -->
-        <activity
-            android:name=".startUp.LogIn"
-            android:exported="true" />
 
         <!-- USER -->
         <activity
