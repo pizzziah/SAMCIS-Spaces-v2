@@ -15,7 +15,8 @@ constraintlayout = "2.2.0"
 firebaseAuth = "23.1.0"
 firebaseDatabase = "21.0.0"
 firebase-bom = "32.1.0"                # Use the latest stable version
-androidx-compose-bom = "2024.01.00"    # Update to the latest Compose BOM version
+androidx-compose-bom = "2024.01.00"
+firebaseFirestore = "25.1.1"    # Update to the latest Compose BOM version
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +40,7 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
